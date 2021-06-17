@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BMICalc.ViewModels"
+             x:Class="BMICalc.Views.LandingPage">
+    
+    <ContentPage.BindingContext>
+        <vm:LandingPageViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        
+        <!-- Header -->
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to the BMI calculator" HorizontalTextAlignment="Center" TextColor="White" FontSize="28"/>
+        </Frame>
+
+        <Label Text="Body Mass Index" 
+        FontSize="Title" 
+        Padding="0,20,0,20" 
+        HorizontalOptions="Center"/>
+
+        <Label Text="The body mass index (BMI) or Quetelet index is a value derived from the mass (or weight) and height of an individual. The BMI is defined as the body mass divided by the square of the body height, and is universally expressed in units of kg/m2, resulting from mass in kilograms and height in metres." 
+        FontSize="16" 
+        Padding="20,0,20,0"/>
+
+        <Button Text="Launch BMI Calculator"
+            FontSize="16"
+            Margin="20"
+            HeightRequest="60"
+            VerticalOptions="EndAndExpand"
+            Command="{Binding StartCalculator}"/>
+
+    </StackLayout>
+
+</ContentPage>

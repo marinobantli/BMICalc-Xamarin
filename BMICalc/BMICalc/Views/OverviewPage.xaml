@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Overview of BMI ranges"
+             x:Class="BMICalc.Views.OverviewPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+
+                <Label Text="Here is an Overview of the different BMI types" 
+                       Grid.Row="0"
+                       FontSize="16"/>
+
+                <StackLayout Orientation="Vertical" Grid.Row="1">
+                    
+                    <Label Text="Underweight"
+                       FontSize="18"
+                       FontAttributes="Bold"/>
+                    
+                    <Label Text="From 0 to 18.5"
+                       FontSize="16"/>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" Grid.Row="2">
+
+                    <Label Text="Normal weight"
+                       FontSize="18"
+                       FontAttributes="Bold"/>
+
+                    <Label Text="From 18.5 to 24.9"
+                       FontSize="16"/>
+
+                </StackLayout>
+                
+                <StackLayout Orientation="Vertical" Grid.Row="3">
+
+                    <Label Text="Overweight"
+                       FontSize="18"
+                       FontAttributes="Bold"/>
+
+                    <Label Text="From 24.9 to 29.9"
+                       FontSize="16"/>
+
+                </StackLayout>
+                
+                <StackLayout Orientation="Vertical" Grid.Row="4">
+
+                    <Label Text="Obese"
+                       FontSize="18"
+                       FontAttributes="Bold"/>
+
+                    <Label Text="From 29.9 to 34.9"
+                       FontSize="16"/>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" Grid.Row="5">
+
+                    <Label Text="Extremely Obese"
+                       FontSize="18"
+                       FontAttributes="Bold"/>
+
+                    <Label Text="Above 35"
+                       FontSize="16"/>
+
+                </StackLayout>
+
+            </Grid>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

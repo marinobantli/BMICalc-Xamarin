@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:BMICalc.Views" xmlns:bmicalc="clr-namespace:BMICalc" x:DataType="bmicalc:ViewContainer"
+       x:Class="BMICalc.ViewContainer">
+
+    <!-- https://docs.microsoft.com/en-us/xamarin/get-started/quickstarts/database?pivots=windows -->
+        
+    <TabBar>
+        <Tab Title="Calculator" Icon="outline_calculate_black_24.png">
+            <ShellContent ContentTemplate="{DataTemplate local:CalculatorPage}" />
+        </Tab>
+        <Tab Title="Overview" Icon="outline_list_black_24.png">
+            <ShellContent ContentTemplate="{DataTemplate local:OverviewPage}" />
+        </Tab>
+        <Tab Title="History" Icon="outline_history_black_24.png">
+            <ShellContent ContentTemplate="{DataTemplate local:HistoryPage}" />
+        </Tab>
+        <Tab Title="Settings" Icon="outline_settings_black_24.png">
+            <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}" />
+        </Tab>
+    </TabBar>
+
+</Shell>

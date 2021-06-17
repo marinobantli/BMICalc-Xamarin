@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BMICalc.ViewModels"
+             Title="App Settings"
+             x:Class="BMICalc.Views.SettingsPage">
+
+    <ContentPage.BindingContext>
+        <vm:SettingsPageViewModel />
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="User Database:"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="2"
+                       FontSize="20"
+                       Margin="20,0,0,0"
+                       VerticalOptions="End"/>
+
+                <Button Text="Add User"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontSize="16"
+                    Margin="20,0,0,0"
+                    Command="{Binding AddUser}"/>
+
+                <Button Text="Delete User"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontSize="16"
+                    Margin="0,0,20,0"
+                    Command="{Binding RemoveUser}"/>
+
+                <Button Text="Clear Database"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    FontSize="16"
+                    Margin="20,0,20,0"
+                    Command="{Binding RemoveAllUsers}"/>
+
+                <Label Text="BMI Database:"
+                       Grid.Row="3"
+                       Grid.ColumnSpan="2"
+                       FontSize="20"
+                       Margin="20,0,0,0"
+                       VerticalOptions="End"/>
+
+                <Button Text="Clear Database"
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    FontSize="16"
+                    Margin="20,0,20,0"
+                    Command="{Binding RemoveAllBMIs}"/>
+
+            </Grid>
+            
+        </StackLayout>
+        
+    </ContentPage.Content>
+    
+</ContentPage>

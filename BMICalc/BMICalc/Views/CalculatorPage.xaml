@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BMICalc.ViewModels"
+             Title="Calculate your BMI"
+             x:Class="BMICalc.Views.CalculatorPage">
+
+    <ContentPage.BindingContext>
+        <vm:CalculatorPageViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Please enter your height and weight to calculate your BMI." 
+                   Grid.Row="0"
+                   Grid.ColumnSpan="4"
+                   FontSize="16"
+                   Margin="20"/>
+
+            <Label Text="Height:" 
+                   Grid.Row="1"
+                   Grid.Column="0" 
+                   FontSize="16"
+                   Margin="20,0,0,0"
+                   VerticalOptions="Center"/>
+
+            <Label Text="Weight:"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   FontSize="16"
+                   Margin="20,0,0,0"
+                   VerticalOptions="Center"/>
+
+            <Label Text="cm"
+                   Grid.Row="1"
+                   Grid.Column="2"
+                   FontSize="16"
+                   Margin="-30,0,0,20"
+                   VerticalOptions="End"/>
+
+            <Label Text="kg"
+                   Grid.Row="2"
+                   Grid.Column="2"
+                   FontSize="16"
+                   Margin="-30,0,0,20"
+                   VerticalOptions="End"/>
+
+            <Entry Grid.Row="1"
+                   Grid.Column="1"
+                   Keyboard="Numeric"
+                   Margin="0,0,0,10"
+                   Text="{Binding Path=Height, UpdateSourceEventName=PropertyChanged}"/>
+
+            <Entry Grid.Row="2"
+                   Grid.Column="1"
+                   Keyboard="Numeric"
+                   Margin="0,0,0,10"
+                   Text="{Binding Path=Weight, UpdateSourceEventName=PropertyChanged}"/>
+
+            <Label Text="Your calculated BMI:" 
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   FontSize="20"
+                   Margin="20,0,0,4"
+                   VerticalOptions="End"/>
+
+            <Label Text="{Binding Path=CalculatedBMI, UpdateSourceEventName=PropertyChanged}"
+                   Grid.Row="3"
+                   Grid.Column="1"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   VerticalOptions="End"
+                   HorizontalOptions="End"/>
+
+            <Label Text="{Binding Path=BmiInfo, UpdateSourceEventName=PropertyChanged}" 
+                   Grid.Row="3"
+                   Grid.Column="2"
+                   FontSize="18"
+                   Margin="10,0,0,4"
+                   VerticalOptions="End"/>
+
+            <Button Text="Save Result"
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    FontSize="16"
+                    Margin="-30,0,20,0"
+                    Command="{Binding SaveValue}"/>
+
+            <Button Text="Clear Values"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    FontSize="16"
+                    Margin="20,0,30,0"
+                    Command="{Binding ClearValues}"/>
+            
+            <Button Text="Calculate BMI"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="4"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    Margin="20,0,20,0"
+                    Command="{Binding Calculate}"/>
+
+        </Grid>
+
+
+
+    </StackLayout>
+</ContentPage>
