@@ -44,18 +44,18 @@ namespace BMICalc.ViewModels
             RemoveAllBMIs = new Command(() => { App.BmiDB.ClearDB(); });
         }
 
-        async void NewUserPrompt()
+        private async void NewUserPrompt()
         {
             var input = await UserDialogs.Instance.PromptAsync("Type in a Username", "New User", "Confirm", "Cancel");
 
-            if (input.Ok)
+            if (input.Ok && input.Value != string.Empty)
             {
                 await App.UserDB.AddUser(new Data.UserData() { Name = input.Value });
                 UserDialogs.Instance.Alert($"Successfully added user: {input.Value}.", "User added");
             }
         }
 
-        async void RemoveUserPrompt()
+        private async void RemoveUserPrompt()
         {
             List<string> users = new List<string>();
 
@@ -66,7 +66,7 @@ namespace BMICalc.ViewModels
 
             var choice = await UserDialogs.Instance.ActionSheetAsync("Which user should be removed?", "Cancel", "Remove", CancellationToken.None, users.ToArray());
 
-            if (choice != "Cancel")
+            if (choice != "Cancel" && choice != "Remove")
             {
                 var user = await App.UserDB.GetUser(choice);
 
