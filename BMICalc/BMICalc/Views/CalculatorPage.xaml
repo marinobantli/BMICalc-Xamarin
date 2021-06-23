@@ -22,7 +22,7 @@
 
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="80"/>
                 <ColumnDefinition Width="160"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
@@ -77,14 +77,14 @@
                    Grid.Row="3"
                    Grid.Column="0"
                    Grid.ColumnSpan="2"
-                   FontSize="20"
+                   FontSize="18"
                    Margin="20,0,0,4"
                    VerticalOptions="End"/>
 
             <Label Text="{Binding Path=CalculatedBMI, UpdateSourceEventName=PropertyChanged}"
                    Grid.Row="3"
                    Grid.Column="1"
-                   FontSize="28"
+                   FontSize="24"
                    FontAttributes="Bold"
                    VerticalOptions="End"
                    HorizontalOptions="End"/>
@@ -92,33 +92,44 @@
             <Label Text="{Binding Path=BmiInfo, UpdateSourceEventName=PropertyChanged}" 
                    Grid.Row="3"
                    Grid.Column="2"
-                   FontSize="18"
+                   FontSize="16"
                    Margin="10,0,0,4"
                    VerticalOptions="End"/>
 
-            <Button Text="Save Result"
-                    Grid.Row="4"
-                    Grid.Column="2"
-                    Grid.ColumnSpan="2"
+            <Grid Grid.Row="4" Grid.ColumnSpan="4">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Save Result"
+                    Grid.Row="0"
+                    Grid.Column="1"
                     FontSize="16"
-                    Margin="-30,0,20,0"
+                    Margin="0,0,20,0"
                     Command="{Binding SaveValue}"/>
 
-            <Button Text="Clear Values"
-                    Grid.Row="4"
+                <Button Text="Clear Values"
+                    Grid.Row="0"
                     Grid.Column="0"
-                    Grid.ColumnSpan="2"
                     FontSize="16"
-                    Margin="20,0,30,0"
+                    Margin="20,0,0,0"
                     Command="{Binding ClearValues}"/>
-            
-            <Button Text="Calculate BMI"
-                    Grid.Row="5"
-                    Grid.ColumnSpan="4"
+
+                <Button Text="Calculate BMI"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
                     FontSize="16"
                     FontAttributes="Bold"
                     Margin="20,0,20,0"
                     Command="{Binding Calculate}"/>
+
+            </Grid>
 
         </Grid>
 
