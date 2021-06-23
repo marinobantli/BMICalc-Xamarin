@@ -32,6 +32,7 @@ namespace BMICalc.ViewModels
             RemoveAllBMIs = new Command(() => { App.BmiDB.ClearDB(); });
         }
 
+        //Shows the new user Dialog
         private async void NewUserPrompt()
         {
             PromptResult input = await UserDialogs.Instance.PromptAsync("Type in a Username", "New User", "Confirm", "Cancel");
@@ -43,6 +44,7 @@ namespace BMICalc.ViewModels
             }
         }
 
+        //Shows the remove user Dialog
         private async void RemoveUserPrompt()
         {
             string choice = await UserDialogs.Instance.ActionSheetAsync("Which user should be removed?", "Cancel", "Remove", CancellationToken.None, App.UserDB.GetUsers().ToArray());

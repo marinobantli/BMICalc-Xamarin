@@ -93,6 +93,7 @@ namespace BMICalc.ViewModels
             SaveValue = new Command(() => { SaveResult(); });
         }
 
+        //Calculates the BMI value
         private double CalculateBMI(double height, double weight)
         {
             double heightInSuqareMeters = height / 100;
@@ -101,6 +102,7 @@ namespace BMICalc.ViewModels
             return Math.Round(weight / heightInSuqareMeters, 2);
         }
 
+        //Saves the result to the DB
         private async void SaveResult()
         {
             string choice = await UserDialogs.Instance.ActionSheetAsync("Select user to assign the result", "Cancel", "Confirm", CancellationToken.None, App.UserDB.GetUsers().ToArray());

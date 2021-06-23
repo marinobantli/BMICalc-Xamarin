@@ -9,6 +9,7 @@ namespace BMICalc.ViewModels
 
         public LandingPageViewModel()
         {
+            //Switches to the ViewContainer
             StartCalculator = new Command(() => { Application.Current.MainPage = new ViewContainer(); });
         }
     }

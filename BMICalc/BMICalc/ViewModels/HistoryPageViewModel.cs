@@ -67,6 +67,7 @@ namespace BMICalc.ViewModels
             GetData();
         }
 
+        //Shows the user selection dialog
         private async void ShowUserSelection()
         {
             string choice = await UserDialogs.Instance.ActionSheetAsync("Select user", "Cancel", "Confirm", CancellationToken.None, App.UserDB.GetUsers().ToArray());
@@ -77,6 +78,7 @@ namespace BMICalc.ViewModels
             }
         }
 
+        //Gets the data for the specified user
         private async void GetData()
         {
             List<BMIData> tempData = new List<BMIData>();
