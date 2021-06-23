@@ -69,10 +69,10 @@ namespace BMICalc.ViewModels
         public HistoryPageViewModel()
         {
             GetData();
-            RefreshPicker();
+            RefreshData();
         }
 
-        private void RefreshPicker()
+        private void RefreshData()
         {
             List<string> users = App.UserDB.GetUsers();
 

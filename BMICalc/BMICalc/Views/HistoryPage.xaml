@@ -8,8 +8,7 @@
     <ContentPage.BindingContext>
         <vm:HistoryPageViewModel />
     </ContentPage.BindingContext>
-    
-    
+
     <ContentPage.Content>
         <StackLayout>
 
