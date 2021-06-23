@@ -5,6 +5,7 @@ using System.Text;
 
 namespace BMICalc.Data
 {
+    //This is the table "UserData"
     public class UserData
     {
         [PrimaryKey, AutoIncrement]

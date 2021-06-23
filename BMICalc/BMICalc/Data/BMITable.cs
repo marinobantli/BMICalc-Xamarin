@@ -4,6 +4,7 @@ using System.Text;
 
 namespace BMICalc
 {
+    //This is the lookup-table for the BMI-Calculator page
     public class BMITable
     {
         public string GetBMIInfo(double BMI)
