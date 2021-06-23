@@ -1,6 +1,5 @@
 ﻿using Acr.UserDialogs;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -102,13 +101,14 @@ namespace BMICalc.ViewModels
             return Math.Round(weight / heightInSuqareMeters, 2);
         }
 
-        async void SaveResult()
+        private async void SaveResult()
         {
             string choice = await UserDialogs.Instance.ActionSheetAsync("Select user to assign the result", "Cancel", "Confirm", CancellationToken.None, App.UserDB.GetUsers().ToArray());
 
-            if (choice != "Cancel" && CalculatedBMI != 0)
+            if (choice != "Cancel" && CalculatedBMI != 0 && CalculatedBMI != double.NaN)
             {
                 await App.BmiDB.SaveNewRecord(new Data.BMIData() { Name = choice, Height = Height, Weight = Weight, BMI = CalculatedBMI });
+                UserDialogs.Instance.Alert("Successfully saved BMI result.", "Result saved");
             }
         } 
 

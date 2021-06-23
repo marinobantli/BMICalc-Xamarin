@@ -1,9 +1,7 @@
-﻿using Acr.UserDialogs;
-using BMICalc.Data;
+﻿using BMICalc.Data;
 using System;
 using System.IO;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace BMICalc
 {
@@ -41,18 +39,6 @@ namespace BMICalc
             InitializeComponent();
 
             MainPage = new Views.LandingPage();
-        }
-
-        protected override void OnStart()
-        {
-        }
-
-        protected override void OnSleep()
-        {
-        }
-
-        protected override void OnResume()
-        {
         }
     }
 }

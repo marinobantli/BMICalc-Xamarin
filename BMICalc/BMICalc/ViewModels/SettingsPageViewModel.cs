@@ -1,5 +1,4 @@
 ﻿using Acr.UserDialogs;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading;

@@ -1,13 +1,21 @@
-﻿using BMICalc.Data;
+﻿using Acr.UserDialogs;
+using BMICalc.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace BMICalc.ViewModels
 {
     class HistoryPageViewModel : INotifyPropertyChanged
     {
+        public ICommand SelectUser { get; }
+
+        public ICommand ShowAllData { get; }
+
         #region Eventhandlers
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -20,22 +28,8 @@ namespace BMICalc.ViewModels
 
         #region Properties
 
-        private List<string> _usernames;
         private string _selUser;
         private List<BMIData> _datas;
-
-        public List<string> UserNames
-        {
-            set
-            {
-                _usernames = value;
-                NotifyPropertyChanged();
-            }
-            get
-            {
-                return _usernames;
-            }
-        }
 
         public string SelectedUser
         {
@@ -68,23 +62,22 @@ namespace BMICalc.ViewModels
 
         public HistoryPageViewModel()
         {
+            SelectUser = new Command(() => { ShowUserSelection(); });
+            ShowAllData = new Command(() => { SelectedUser = null; });
             GetData();
-            RefreshData();
         }
 
-        private void RefreshData()
+        private async void ShowUserSelection()
         {
-            List<string> users = App.UserDB.GetUsers();
+            string choice = await UserDialogs.Instance.ActionSheetAsync("Select user", "Cancel", "Confirm", CancellationToken.None, App.UserDB.GetUsers().ToArray());
 
-            if(users.Count == 0)
+            if (choice != "Cancel" && choice != string.Empty)
             {
-                users.Add("No users registered");
+                SelectedUser = choice;
             }
-
-            UserNames = users;
         }
 
-        async void GetData()
+        private async void GetData()
         {
             List<BMIData> tempData = new List<BMIData>();
 

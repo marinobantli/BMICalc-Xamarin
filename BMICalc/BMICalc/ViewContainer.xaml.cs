@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
 namespace BMICalc
 {
-    public partial class ViewContainer : Xamarin.Forms.Shell
+    public partial class ViewContainer : Shell
     {
         public ViewContainer()
         {
