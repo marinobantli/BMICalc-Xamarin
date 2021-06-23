@@ -72,14 +72,10 @@ namespace BMICalc.ViewModels
             RefreshPicker();
         }
 
-        async void RefreshPicker()
+        private void RefreshPicker()
         {
-            List<string> users = new List<string>();
+            List<string> users = App.UserDB.GetUsers();
 
-            foreach (var user in await App.UserDB.GetUsers())
-            {
-                users.Add(user.Name);
-            }
             if(users.Count == 0)
             {
                 users.Add("No users registered");

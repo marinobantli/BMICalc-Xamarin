@@ -104,16 +104,9 @@ namespace BMICalc.ViewModels
 
         async void SaveResult()
         {
-            List<string> users = new List<string>();
+            string choice = await UserDialogs.Instance.ActionSheetAsync("Select user to assign the result", "Cancel", "Confirm", CancellationToken.None, App.UserDB.GetUsers().ToArray());
 
-            foreach (var user in await App.UserDB.GetUsers())
-            {
-                users.Add(user.Name);
-            }
-
-            var choice = await UserDialogs.Instance.ActionSheetAsync("Select user to assign the result", "Cancel", "Confirm", CancellationToken.None, users.ToArray());
-
-            if (choice != "Cancel")
+            if (choice != "Cancel" && CalculatedBMI != 0)
             {
                 await App.BmiDB.SaveNewRecord(new Data.BMIData() { Name = choice, Height = Height, Weight = Weight, BMI = CalculatedBMI });
             }

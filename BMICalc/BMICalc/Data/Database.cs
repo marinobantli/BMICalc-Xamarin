@@ -14,9 +14,18 @@ namespace BMICalc.Data
             _database.CreateTableAsync<UserData>().Wait();
         }
 
-        public Task<List<UserData>> GetUsers()
+        public List<string> GetUsers()
         {
-            return _database.Table<UserData>().ToListAsync();
+            Task<List<UserData>> dbData = _database.Table<UserData>().ToListAsync();
+
+            List<string> users = new List<string>();
+
+            foreach (var user in dbData.Result)
+            {
+                users.Add(user.Name);
+            }
+
+            return users;
         }
 
         public Task<UserData> GetUser(string Name)
